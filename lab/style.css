@@ -11,7 +11,7 @@ body {
 }
 
 /* ==== 📦 Container ==== */
-.container {
+header, main {
   background: white;
   padding: 2rem;
   border-radius: 1rem;
@@ -20,7 +20,16 @@ body {
   text-align: center;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   /* TODO: Add vertical layout (e.g., flex-direction: column) if needed */
+}
+header {
+  border-radius: 1rem 1rem 0 0;
+  padding-bottom: 0;
+}
+
+main {
+  border-radius: 0 0 1rem 1rem;
 }
 
 /* ==== 🏷️ Title ==== */
@@ -32,7 +41,7 @@ h1 {
 
 /* ==== 🔎 Input Field ==== */
 input {
-  /* TODO: Style the input field:
+/* TODO: Style the input field:
      - Uniform height with button
      - Internal spacing
      - Rounded corners
@@ -41,6 +50,12 @@ input {
      - Margin below
      - Border with visible contrast
   */
+  width: 100%;
+  padding: 0.6rem;
+  margin-bottom: 1.6rem;
+  border: 2px solid #f39c12;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 /* ==== 🔘 Button ==== */
@@ -55,10 +70,18 @@ button {
      - Margin top
      - Transition effect (for hover)
   */
+  background-color: #e67e22; 
+  color: white;             
+  border: none;             
+  padding: 0.6rem 1.5rem;   
+  border-radius: 4px;       
+  cursor: pointer;          
+  margin-top: 1rem;         
 }
 
 button:hover {
   /* TODO: Add hover/active styling to make the button interactive */
+  background-color: #d35400;
 }
 
 /* ==== 🌦️ Weather Info ==== */
@@ -70,6 +93,10 @@ button:hover {
      - Flex or grid layout for icon + text
      - Responsive width or layout
   */
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #fdfaf6;
+  border: 1px solid #fceae0;
 }
 
 .weather img {
@@ -77,14 +104,12 @@ button:hover {
   width: 80px;
   /* Optional: Add effects or conditional styling later */
 }
-
 /* ==== 🧠 Dropdown Suggestions ==== */
 .dropdown {
   position: relative;
-  /* Container for input + suggestions dropdown */
 }
 
-#suggestions {
+.suggestions {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -98,20 +123,20 @@ button:hover {
   border-radius: 0 0 0.5rem 0.5rem;
   z-index: 1000;
   display: none; /* JS will toggle this */
-  /* TODO: Adjust style if needed for clarity/contrast */
 }
 
-#suggestions li {
+.suggestions li {
   padding: 0.6rem;
   cursor: pointer;
   border-bottom: 1px solid #eee;
-  /* TODO: Make interactive on hover */
+  text-align: left; /* Aligns city names nicely to the left */
 }
 
-#suggestions li:last-child {
+.suggestions li:last-child {
   border-bottom: none;
 }
 
-#suggestions li:hover {
+.suggestions li:hover {
   background-color: #fceae0;
 }
+
